@@ -6,7 +6,7 @@ import Header from "./components/Layout/Header";
 import Dashboard from "./pages/Dashboard";
 import Tasks from "./pages/Tasks";
 import Activity from "./pages/Activity";
-import Customers from "./pages/Cutomer";
+import Customers from "./pages/Customer";
 import { Settings } from "lucide-react";
 
 function App() {
