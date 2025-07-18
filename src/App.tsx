@@ -1,12 +1,16 @@
 import { Provider } from "react-redux";
 import { store } from "./store";
+import { BrowserRouter as Router } from "react-router-dom";
+import Sidebar from "./components/Layout/Sidebar";
 
 function App() {
   return (
     <Provider store={store}>
-      <h1 className="text-4xl font-bold text-center flex items-center justify-center min-h-screen">
-        Hey there!!!
-      </h1>
+      <Router>
+        <div className="min-h-screen bg-gray-50 flex overflow-auto">
+         <Sidebar />
+        </div>
+      </Router>
     </Provider>
   );
 }
