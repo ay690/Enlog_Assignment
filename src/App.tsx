@@ -4,21 +4,29 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Layout/Sidebar";
 import Header from "./components/Layout/Header";
 import Dashboard from "./pages/Dashboard";
+import Tasks from "./pages/Tasks";
+import Activity from "./pages/Activity";
+import Customers from "./pages/Cutomer";
+import { Settings } from "lucide-react";
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
         <div className="min-h-screen bg-gray-50 flex overflow-auto">
-         <Sidebar />
-         <div className="flex-1 flex flex-col">
+          <Sidebar />
+          <div className="flex-1 flex flex-col">
             <Header />
             <main className="flex-1 pt-6">
-             <Routes>
-              <Route path = "/" element = {<Dashboard />} />
-             </Routes>
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/tasks" element={<Tasks />} />
+                <Route path="/activity" element={<Activity />} />
+                <Route path="/cutomers" element={<Customers />} />
+                <Route path="/settings" element={<Settings />} />
+              </Routes>
             </main>
-         </div>
+          </div>
         </div>
       </Router>
     </Provider>
