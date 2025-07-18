@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface CircularProgressProps {
   percentage: number;
   title: string;
   subtitle: string;
-  size?: number;    
-  strokeWidth?: number; 
-  tickCount?: number;   
+  size?: number;
+  strokeWidth?: number;
+  tickCount?: number;
 }
 
 const CircularProgress: React.FC<CircularProgressProps> = ({
@@ -19,12 +19,28 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
 }) => {
   const center = size / 2;
   const radius = center - strokeWidth * 2;
-  const startAngle = -190; // degrees
-  const endAngle = 10;    // degrees
+  const startAngle = -190;
+  const endAngle = 10;
   const angleStep = (endAngle - startAngle) / tickCount;
-  const activeTicks = Math.round((percentage / 100) * tickCount);
+  const finalActiveTicks = Math.round((percentage / 100) * tickCount);
 
-  // Convert degrees to radians
+  const [animatedTicks, setAnimatedTicks] = useState(0);
+
+  useEffect(() => {
+    setAnimatedTicks(0); 
+    const interval = setInterval(() => {
+      setAnimatedTicks((prev) => {
+        if (prev >= finalActiveTicks) {
+          clearInterval(interval);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 15); // adjust speed here
+    return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [percentage, tickCount]);
+
   const deg2rad = (deg: number) => (deg * Math.PI) / 180;
 
   const ticks = [];
@@ -35,7 +51,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
     const y1 = center + (radius - strokeWidth) * Math.sin(rad);
     const x2 = center + radius * Math.cos(rad);
     const y2 = center + radius * Math.sin(rad);
-    const isActive = i <= activeTicks;
+    const isActive = i <= animatedTicks;
 
     ticks.push(
       <line

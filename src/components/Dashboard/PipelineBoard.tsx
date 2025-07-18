@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { ArrowDownUpIcon } from "lucide-react";
 import { useAppSelector } from "../../store";
 import { type Customer } from "../../types";
@@ -19,10 +20,18 @@ const PipelineBoard: React.FC = () => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
-      {stages.map(({ key, title, icon: Icon }) => {
+      {stages.map(({ key, title, icon: Icon }, index) => {
         const list = getCustomersByStage(key);
+        const isLeft = index < stages.length / 2;
+
         return (
-          <div key={key} className="rounded-lg p-4 flex flex-col space-y-4">
+          <motion.div
+            key={key}
+            initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            className="rounded-lg p-4 flex flex-col space-y-4"
+          >
             {/* Header */}
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
@@ -44,7 +53,7 @@ const PipelineBoard: React.FC = () => {
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
         );
       })}
     </div>

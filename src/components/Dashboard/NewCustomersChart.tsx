@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppSelector } from '../../store';
 
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
@@ -14,6 +14,13 @@ const NewCustomersChart: React.FC = () => {
     (state) => state.dashboard.stats
   );
 
+  const [animated, setAnimated] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setAnimated(true), 100); // slight delay for animation trigger
+    return () => clearTimeout(timeout);
+  }, []);
+
   const prev = previousCustomers.length === newCustomers.length
     ? previousCustomers
     : newCustomers.map(() => 7);
@@ -24,9 +31,7 @@ const NewCustomersChart: React.FC = () => {
 
   return (
     <div className="p-6 rounded-lg">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">
-        New customers
-      </h3>
+      <h3 className="text-lg font-semibold text-gray-900 mb-4">New customers</h3>
 
       <div className="flex">
         {/* Y-axis labels */}
@@ -47,18 +52,16 @@ const NewCustomersChart: React.FC = () => {
             return (
               <div key={day} className="flex flex-col items-center space-y-1">
                 <div className="flex items-end space-x-1 h-24">
-                
                   <div
-                    className="w-4 rounded-t"
+                    className={`w-4 rounded-t transition-all duration-700 ease-out`}
                     style={{
                       ...hatchStyle,
-                      height: `${prevH}%`,
+                      height: animated ? `${prevH}%` : `0%`,
                     }}
                   />
-              
                   <div
-                    className="w-4 bg-gray-900 rounded-t"
-                    style={{ height: `${currH}%` }}
+                    className="w-4 bg-gray-900 rounded-t transition-all duration-700 ease-out"
+                    style={{ height: animated ? `${currH}%` : `0%` }}
                   />
                 </div>
                 <div className="text-xs text-gray-400">{day}</div>
