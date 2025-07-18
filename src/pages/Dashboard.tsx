@@ -1,12 +1,38 @@
-import React from 'react'
-import PipelineBoard from '../components/Dashboard/PipelineBoard'
+import React from "react";
+import PipelineBoard from "../components/Dashboard/PipelineBoard";
+import NewCustomersChart from "../components/Dashboard/NewCustomersChart";
+import CircularProgress from "../components/Dashboard/CircularProgress";
+import StatsCard from "../components/Dashboard/StatsCard";
+import { useAppSelector } from "../store";
 
 const Dashboard: React.FC = () => {
-  return (
-    <div className='space-y-6 p-6'>
-       <PipelineBoard />
-    </div>
-  )
-}
+  const { stats } = useAppSelector((state) => state.dashboard);
 
-export default Dashboard
+  return (
+    <div className="space-y-6 p-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <NewCustomersChart />
+        <CircularProgress
+          percentage={stats.successfulDeals}
+          title="Successful deals"
+          subtitle=""
+        />
+        <StatsCard
+          title="Tasks"
+          value={stats.tasksInProgress.toString()}
+          subtitle="in progress"
+          showArrow={true}
+        />
+        <StatsCard
+          title="Prepayments"
+          value={`$ ${stats.prepayments.toLocaleString()}`}
+          subtitle="from customers"
+          showArrow={true}
+        />
+      </div>
+      <PipelineBoard />
+    </div>
+  );
+};
+
+export default Dashboard;

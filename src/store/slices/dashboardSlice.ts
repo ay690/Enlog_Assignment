@@ -8,6 +8,7 @@ interface DashboardState {
 
 const initialState: DashboardState = {
   stats: {
+    previousCustomers: [2, 5, 4, 3, 6],
     newCustomers: [3, 8, 6, 9, 4, 7],
     successfulDeals: 68,
     tasksInProgress: 53,

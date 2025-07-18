@@ -35,6 +35,7 @@ export interface Project {
 }
 
 export interface DashboardStats {
+  previousCustomers: number[];
   newCustomers: number[];
   successfulDeals: number;
   tasksInProgress: number;
