@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { type TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import dashboardSlice from "./slices/dashboardSlice";
+import customerSlice from "./slices/customersSlice";
 
 export const store = configureStore({
     reducer: {
+        customers: customerSlice,
         dashboard: dashboardSlice,
     },
 });
