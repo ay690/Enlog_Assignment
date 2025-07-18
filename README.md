@@ -2,6 +2,10 @@
 
 A modern, responsive CRM dashboard application built with React, TypeScript, and Tailwind CSS. Features customer pipeline management, analytics, team collaboration, and project tracking.
 
+## 🚀 Deployment Link:
+
+https://enlog-assignment-five.vercel.app/
+
 ## ✨ Features
 
 ### 📊 Analytics Dashboard
