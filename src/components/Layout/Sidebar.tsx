@@ -65,7 +65,7 @@ const Sidebar: React.FC = () => {
             transition={{ duration: 0.3 }}
             className={`
               fixed top-0 left-0 h-full bg-white border-r border-gray-200
-              w-64 p-6 flex flex-col space-y-6
+              w-64 p-6 flex flex-col space-y-6 overflow-y-auto
               md:translate-x-0 md:static md:shadow-none z-20
             `}
           >
