@@ -10,7 +10,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="-mt-6">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 bg-green-200/30">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 bg-green-200/30 rounded-lg p-4">
         <NewCustomersChart />
         <CircularProgress
           percentage={stats.successfulDeals}
@@ -21,18 +21,23 @@ const Dashboard: React.FC = () => {
           title="Tasks"
           value={stats.tasksInProgress.toString()}
           subtitle="in progress"
-          showArrow={true}
+          showArrow
         />
         <StatsCard
           title="Prepayments"
-          value={`$ ${stats.prepayments.toLocaleString()}`}
+          value={`$${stats.prepayments.toLocaleString()}`}
           subtitle="from customers"
-          showArrow={true}
+          showArrow
         />
       </div>
-      <PipelineBoard />
+
+      {/* Pipeline Board: margin-top on small, padding */}
+      <div className="mt-6">
+        <PipelineBoard />
+      </div>
     </div>
   );
 };
 
 export default Dashboard;
+

@@ -5,20 +5,23 @@ import { setSearchTerm } from '../../store/slices/customersSlice';
 
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { searchTerm } = useAppSelector(state => state.customers);
-  const currentUser = useAppSelector(state => state.user.currentUser);
+  const { searchTerm } = useAppSelector((state) => state.customers);
+  const currentUser = useAppSelector((state) => state.user.currentUser);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchTerm(e.target.value));
   };
 
   return (
-    <header className="bg-green-200/30 border-gray-200 px-6 py-4">
-      <div className="flex items-center justify-between">
+    <header className="bg-green-200/30 border-gray-200 px-4 py-3 md:px-6">
+      <div className="flex flex-col space-y-3 md:flex-row md:space-y-0 md:items-center md:justify-between">
         {/* Search Bar */}
-        <div className="flex-1 max-w-md">
+        <div className="w-full md:w-1/3">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            <Search
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              size={20}
+            />
             <input
               type="text"
               placeholder="Search customer..."
@@ -29,30 +32,30 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Side Controls */}
-        <div className="flex items-center space-x-4">
+        {/* Controls */}
+        <div className="flex flex-wrap justify-end gap-2 md:gap-4">
           {/* Sort By */}
-          <button className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-green-100 rounded-lg transition-colors cursor-pointer">
+          <button className="flex items-center space-x-2 px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-green-100 rounded-lg transition-colors">
             <SlidersHorizontal size={16} />
-            <span>Sort by</span>
-          </button> 
+            <span className="sm:inline">Sort by</span>
+          </button>
 
           {/* Filters */}
-          <button className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-green-100 rounded-lg transition-colors cursor-pointer">
+          <button className="flex items-center space-x-2 px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-green-100 rounded-lg transition-colors">
             <SlidersHorizontal size={16} />
-            <span>Filters</span>
+            <span className="sm:inline">Filters</span>
           </button>
 
           {/* User Profile */}
-          <button className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-green-100 rounded-lg transition-colors cursor-pointer">
+          <button className="flex items-center space-x-2 px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-green-100 rounded-lg transition-colors">
             <User size={16} />
-            <span>{currentUser?.name}</span>
+            <span className="sm:inline">{currentUser?.name}</span>
           </button>
 
           {/* Add Customer */}
-          <button className="flex items-center space-x-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
+          <button className="flex items-center space-x-2 px-3 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors">
             <Plus size={16} />
-            <span>Add customer</span>
+            <span className="hidden sm:inline">Add customer</span>
           </button>
         </div>
       </div>
