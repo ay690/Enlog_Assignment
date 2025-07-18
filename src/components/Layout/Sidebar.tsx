@@ -50,10 +50,10 @@ const Sidebar: React.FC = () => {
   return (
     <>
       <button
-        className="fixed top-4 left-4 z-30 p-2 bg-white rounded-md shadow-md md:hidden"
+        className="fixed top-4 right-4 z-30 p-2 bg-white rounded-md shadow-md md:hidden"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+        {isOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
 
       <AnimatePresence>
@@ -64,7 +64,7 @@ const Sidebar: React.FC = () => {
             exit={{ x: "-100%" }}
             transition={{ duration: 0.3 }}
             className={`
-              fixed top-0 left-0 min-h-full bg-white border-r border-gray-200
+              fixed top-0 left-0 h-full bg-white border-r border-gray-200
               w-64 p-6 flex flex-col space-y-6
               md:translate-x-0 md:static md:shadow-none z-20
             `}

@@ -11,7 +11,7 @@ A modern, responsive CRM dashboard application built with React, TypeScript, and
 - **Revenue Tracking**: Track prepayments and financial metrics
 
 ### 🎯 Customer Pipeline
-- **Kanban Board**: Drag-and-drop customer cards across deal stages
+- **Kanban Board**: Customer cards across deal stages
 - **Deal Stages**: Contacted → Negotiation → Offer Sent → Deal Closed
 - **Customer Details**: Contact information, attachments, and comments
 - **Team Assignment**: Assign customers to team members
