@@ -1,9 +1,10 @@
 import React from 'react'
+import PipelineBoard from '../components/Dashboard/PipelineBoard'
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   return (
-    <div>
-       Dashboard
+    <div className='space-y-6 p-6'>
+       <PipelineBoard />
     </div>
   )
 }

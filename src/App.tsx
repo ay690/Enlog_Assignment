@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import Tasks from "./pages/Tasks";
 import Activity from "./pages/Activity";
 import Customers from "./pages/Customer";
-import { Settings } from "lucide-react";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/tasks" element={<Tasks />} />
                 <Route path="/activity" element={<Activity />} />
-                <Route path="/cutomers" element={<Customers />} />
+                <Route path="/customers" element={<Customers />} />
                 <Route path="/settings" element={<Settings />} />
               </Routes>
             </main>
