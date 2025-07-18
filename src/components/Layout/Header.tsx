@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-white border-b border-gray-200 px-6 py-4">
+    <header className="bg-green-200/30 border-gray-200 px-6 py-4">
       <div className="flex items-center justify-between">
         {/* Search Bar */}
         <div className="flex-1 max-w-md">
@@ -32,19 +32,19 @@ const Header: React.FC = () => {
         {/* Right Side Controls */}
         <div className="flex items-center space-x-4">
           {/* Sort By */}
-          <button className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">
+          <button className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-green-100 rounded-lg transition-colors cursor-pointer">
             <SlidersHorizontal size={16} />
             <span>Sort by</span>
           </button> 
 
           {/* Filters */}
-          <button className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">
+          <button className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-green-100 rounded-lg transition-colors cursor-pointer">
             <SlidersHorizontal size={16} />
             <span>Filters</span>
           </button>
 
           {/* User Profile */}
-          <button className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">
+          <button className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-green-100 rounded-lg transition-colors cursor-pointer">
             <User size={16} />
             <span>{currentUser?.name}</span>
           </button>

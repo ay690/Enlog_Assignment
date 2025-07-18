@@ -23,7 +23,7 @@ const NewCustomersChart: React.FC = () => {
   const stepValue = Math.ceil(maxValue / ySteps);
 
   return (
-    <div className="p-6 rounded-lg bg-white">
+    <div className="p-6 rounded-lg">
       <h3 className="text-lg font-semibold text-gray-900 mb-4">
         New customers
       </h3>

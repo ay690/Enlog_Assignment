@@ -23,7 +23,7 @@ const PipelineBoard: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-4 gap-6">
+    <div className="grid grid-cols-4 gap-6 p-6">
       {stages.map((stage) => {
         const stageCustomers = getCustomersByStage(stage.key);
         const count = getStageCount(stage.key);

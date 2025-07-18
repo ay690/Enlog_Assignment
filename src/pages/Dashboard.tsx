@@ -9,8 +9,8 @@ const Dashboard: React.FC = () => {
   const { stats } = useAppSelector((state) => state.dashboard);
 
   return (
-    <div className="space-y-6 p-6">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+    <div className="-mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 bg-green-200/30">
         <NewCustomersChart />
         <CircularProgress
           percentage={stats.successfulDeals}
