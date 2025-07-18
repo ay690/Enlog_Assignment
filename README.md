@@ -1,69 +1,172 @@
-# React + TypeScript + Vite
+# BizLink Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive CRM dashboard application built with React, TypeScript, and Tailwind CSS. Features customer pipeline management, analytics, team collaboration, and project tracking.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 📊 Analytics Dashboard
+- **Customer Metrics**: Track new customers with interactive bar charts
+- **Success Rate**: Visual circular progress indicators for deal success rates
+- **Task Management**: Monitor tasks in progress with real-time updates
+- **Revenue Tracking**: Track prepayments and financial metrics
 
-## Expanding the ESLint configuration
+### 🎯 Customer Pipeline
+- **Kanban Board**: Drag-and-drop customer cards across deal stages
+- **Deal Stages**: Contacted → Negotiation → Offer Sent → Deal Closed
+- **Customer Details**: Contact information, attachments, and comments
+- **Team Assignment**: Assign customers to team members
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 👥 Team Management
+- **Member Profiles**: View team member roles and responsibilities
+- **Project Tracking**: Monitor project progress with counters
+- **Collaboration Tools**: Comments and attachment tracking
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🔍 Advanced Search & Filtering
+- **Real-time Search**: Instant customer search functionality
+- **Smart Filters**: Filter by stage, date, assigned member
+- **Sorting Options**: Sort by various criteria
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🚀 Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Frontend
+- **React 19+** - Modern React with hooks and functional components
+- **TypeScript** - Type-safe development with full IntelliSense
+- **Tailwind CSS** - Utility-first CSS framework for rapid styling
+- **Framer Motion** - Smooth animations and micro-interactions
+
+### State Management
+- **Redux Toolkit** - Efficient Redux with modern patterns
+- **React Redux** - Official React bindings for Redux
+- **RTK Query** - Data fetching and caching solution
+
+### Routing & Navigation
+- **React Router v6** - Declarative routing for React applications
+
+### Development Tools
+- **Vite** - Fast build tool and development server
+- **ESLint** - Code linting and quality assurance
+- **PostCSS** - CSS processing with Autoprefixer
+
+## 📦 Installation
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn package manager
+
+### Quick Start
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ay690/Enlog_Assignment.git
+   cd Enlog_Assignment
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+### Build for Production
+```bash
+npm run build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🏗️ Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── components/           # Reusable UI components
+│   ├── Dashboard/       # Dashboard-specific components
+│   │   ├── StatsCard.tsx
+│   │   ├── NewCustomersChart.tsx
+│   │   ├── CircularProgress.tsx
+│   │   ├── CustomerCard.tsx
+│   │   └── PipelineBoard.tsx
+│   └── Layout/          # Layout components
+│       ├── Sidebar.tsx
+│       └── Header.tsx
+├── pages/               # Page components
+│   ├── Dashboard.tsx
+│   ├── Tasks.tsx
+│   ├── Activity.tsx
+│   ├── Customers.tsx
+│   └── Settings.tsx
+├── store/               # Redux store configuration
+│   ├── index.ts
+│   └── slices/
+│       ├── dashboardSlice.ts
+│       ├── customersSlice.ts
+│       └── userSlice.ts
+├── types/               # TypeScript type definitions
+│   └── index.ts
+├── App.tsx              # Main application component
+├── main.tsx            # Application entry point
+└── index.css           # Global styles
+```
+
+## 🎨 Design System
+
+### Color Palette
+- **Primary**: `#111827` (Gray-900)
+- **Secondary**: `#6B7280` (Gray-500)
+- **Background**: `#F9FAFB` (Gray-50)
+- **Surface**: `#FFFFFF` (White)
+- **Accent**: `#3B82F6` (Blue-500)
+
+### Typography
+- **Headings**: Inter font family, various weights
+- **Body**: System font stack with fallbacks
+- **Code**: Monospace font family
+
+### Spacing
+- **Base Unit**: 4px (0.25rem)
+- **Grid System**: 8px increments
+- **Container**: Max-width with responsive padding
+
+### Tailwind Configuration
+The project uses a custom Tailwind configuration with:
+- Extended color palette
+- Custom font families
+- Responsive breakpoints
+- Animation utilities
+
+## 📱 Responsive Design
+
+The dashboard is fully responsive with breakpoints:
+- **Mobile**: 320px - 768px
+- **Tablet**: 768px - 1024px
+- **Desktop**: 1024px+
+
+### Mobile Features
+- Collapsible sidebar navigation
+- Touch-friendly interactions
+- Optimized card layouts
+- Responsive typography scaling
+
+## 🎭 Animations
+
+Powered by Framer Motion for smooth, performant animations:
+
+### Page Transitions
+- Fade in/out effects
+- Slide transitions between routes
+- Stagger animations for lists
+
+### Micro-interactions
+- Hover effects on cards and buttons
+- Loading states with skeleton screens
+- Smooth state transitions
+
+### Performance
+- Hardware-accelerated animations
+- Reduced motion support
+- Optimized re-renders
